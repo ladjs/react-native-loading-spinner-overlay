@@ -59,9 +59,6 @@ export default class Spinner extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      ...props
-    };
   }
 
   static propTypes = {
@@ -84,21 +81,14 @@ export default class Spinner extends React.Component {
   }
 
   componentWillUnmount() {
-    if (Platform.OS === 'android')
       tag = null;
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      ...nextProps
-    });
-  }
-
-  componentWillUpdate(nextProps, nextState) {
+  componentDidUpdate(prevProps) {
 
     if (Platform.OS !== 'android') return;
 
-    if (nextState.visible)
+    if (!prevProps.visible && this.props.visible)
       return Portal.showModal(tag, this._renderSpinner());
 
     Portal.closeModal(tag);
@@ -107,7 +97,7 @@ export default class Spinner extends React.Component {
 
   _renderSpinner() {
 
-    if (!this.state.visible)
+    if (!this.props.visible)
       return (
         <View />
       );
@@ -119,7 +109,7 @@ export default class Spinner extends React.Component {
     let styleAttr = 'Inverse';
     let size = 'large';
 
-    switch (this.state.size) {
+    switch (this.props.size) {
     case 'small':
       styleAttr = 'SmallInverse';
       size = 'small';
@@ -135,10 +125,10 @@ export default class Spinner extends React.Component {
         <View
           style={[
             styles.background,
-            { backgroundColor: this.state.overlayColor }
+            { backgroundColor: this.props.overlayColor }
           ]}>
           <GiftedSpinner
-            color={this.state.color}
+            color={this.props.color}
             size={size}
             style={{ flex: 1 }}
             styleAttr={styleAttr}/>
@@ -150,7 +140,7 @@ export default class Spinner extends React.Component {
       return spinner;
 
     return (
-      <Modal visible={this.state.visible} transparent>
+      <Modal visible={this.props.visible} transparent>
         {spinner}
       </Modal>
     );
