@@ -1,0 +1,54 @@
+{
+  "name": "react-native-loading-spinner-overlay",
+  "version": "0.0.1",
+  "description": "The only pure React Native Native iOS and Android loading spinner (progress bar indicator) overlay",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublish": "npm run compile",
+    "lint": "eslint src",
+    "test": "npm run lint",
+    "compile": "npm run test && babel src --modules common --out-dir lib",
+    "watch": "babel src --watch --modules common --out-dir lib --source-maps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/niftylettuce/react-native-loading-spinner-overlay.git"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "loading",
+    "spinner",
+    "indicator",
+    "ios",
+    "android",
+    "modal",
+    "full",
+    "screen",
+    "view",
+    "react-native",
+    "progress",
+    "bar",
+    "popup",
+    "pop-up"
+  ],
+  "author": "Nick Baugh <niftylettuce@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/niftylettuce/react-native-loading-spinner-overlay/issues"
+  },
+  "homepage": "https://github.com/niftylettuce/react-native-loading-spinner-overlay",
+  "devDependencies": {
+    "autobind-decorator": "^1.3.3",
+    "babel-cli": "^6.2.0",
+    "babel-core": "^6.2.1",
+    "babel-eslint": "^4.1.6",
+    "babel-istanbul": "^0.5.9",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.1.18",
+    "eslint-plugin-react": "^3.14.0",
+    "jshint": "^2.8.0"
+  }
+}
