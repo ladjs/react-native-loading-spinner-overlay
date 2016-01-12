@@ -19,7 +19,6 @@ import React, {
   Platform,
   StyleSheet,
   View,
-  Dimensions,
   Modal
 } from 'react-native';
 
