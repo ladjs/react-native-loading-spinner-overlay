@@ -50,5 +50,8 @@
     "babel-preset-stage-0": "^6.1.18",
     "eslint-plugin-react": "^3.14.0",
     "jshint": "^2.8.0"
+  },
+  "dependencies": {
+    "react-native-gifted-spinner": "0.0.3"
   }
 }
