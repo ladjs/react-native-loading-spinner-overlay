@@ -45,8 +45,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255,0.5)'
+    alignItems: 'center'
   }
 });
 
@@ -81,6 +80,7 @@ export default class Spinner extends React.Component {
   }
 
   componentWillUnmount() {
+    if (Platform.OS === 'android')
       tag = null;
   }
 
