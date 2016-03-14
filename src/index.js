@@ -90,7 +90,7 @@ export default class Spinner extends React.Component {
     if (!prevProps.visible && this.props.visible)
       return Portal.showModal(tag, this._renderSpinner());
 
-    Portal.closeModal(tag);
+    if (prevProps.visible && !this.props.visible) Portal.closeModal(tag);
 
   }
 
