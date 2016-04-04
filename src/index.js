@@ -120,7 +120,7 @@ export default class Spinner extends React.Component {
     }
 
     let spinner = (
-      <View style={styles.container}>
+      <View style={styles.container} key={'spinner' + Math.floor(Math.random()*100)}>
         <View
           style={[
             styles.background,
