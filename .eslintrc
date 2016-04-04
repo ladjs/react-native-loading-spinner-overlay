@@ -193,7 +193,6 @@
     "max-nested-callbacks": 0,        // specify the maximum depth callbacks can be nested (off by default)
     "new-cap": 0,                     // require a capital letter for constructors
     "new-parens": 0,                  // disallow the omission of parentheses when invoking a constructor with no arguments
-    "new-parens": 0,                  // disallow the omission of parentheses when invoking a constructor with no arguments
     "newline-after-var": 0,           // allow/disallow an empty newline after var statement (off by default)
     "no-array-constructor": 0,        // disallow use of the Array constructor
     "no-continue": 0,                 // disallow use of the continue statement (off by default)
@@ -216,7 +215,7 @@
     "semi-spacing": 0,                // enforce spacing before and after semicolons
     "semi": 0,                        // require or disallow use of semicolons instead of ASI
     "sort-vars": 0,                   // sort variables within the same declaration block (off by default)
-    "space-after-keywords": 2,        // require a space after certain keywords (off by default)
+    "keyword-spacing": 2,             // require a space after certain keywords (off by default)
     "space-before-blocks": 0,         // require or disallow space before blocks (off by default)
     "space-before-function-paren": 0, // require or disallow space before function opening parenthesis (off by default)
     "space-in-parens": 0,             // require or disallow spaces inside parentheses (off by default)
