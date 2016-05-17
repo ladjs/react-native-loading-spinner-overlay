@@ -15,7 +15,8 @@
 // <https://github.com/brentvatne/react-native-overlay>
 //
 
-import React, {
+import React from 'react';
+import {
   Platform,
   StyleSheet,
   View,
