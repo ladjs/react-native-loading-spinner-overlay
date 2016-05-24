@@ -23,8 +23,6 @@ import {
   Modal
 } from 'react-native';
 
-const Portal = require('react-native/Libraries/Portal/Portal.js');
-
 import autobind from 'autobind-decorator';
 import GiftedSpinner from 'react-native-gifted-spinner';
 
@@ -51,8 +49,6 @@ const styles = StyleSheet.create({
 
 const SIZES = ['small', 'normal', 'large'];
 
-let tag;
-
 @autobind
 export default class Spinner extends React.Component {
 
@@ -73,27 +69,6 @@ export default class Spinner extends React.Component {
     size: 'large', // 'normal',
     overlayColor: 'rgba(0, 0, 0, 0.25)'
   };
-
-  componentWillMount() {
-    if (Platform.OS === 'android')
-      tag = Portal.allocateTag();
-  }
-
-  componentWillUnmount() {
-    if (Platform.OS === 'android')
-      tag = null;
-  }
-
-  componentDidUpdate(prevProps) {
-
-    if (Platform.OS !== 'android') return;
-
-    if (!prevProps.visible && this.props.visible)
-      return Portal.showModal(tag, this._renderSpinner());
-
-    if (prevProps.visible && !this.props.visible) Portal.closeModal(tag);
-
-  }
 
   _renderSpinner() {
 
@@ -135,9 +110,6 @@ export default class Spinner extends React.Component {
         </View>
       </View>
     );
-
-    if (Platform.OS === 'android')
-      return spinner;
 
     return (
       <Modal visible={this.props.visible} transparent>
