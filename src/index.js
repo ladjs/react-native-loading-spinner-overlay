@@ -54,6 +54,8 @@ export default class Spinner extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.state = { visible: this.props.visible }
   }
 
   static propTypes = {
@@ -70,9 +72,19 @@ export default class Spinner extends React.Component {
     overlayColor: 'rgba(0, 0, 0, 0.25)'
   };
 
-  _renderSpinner() {
+  close() {
+    this.setState({ visible: false })
+  }
 
-    if (!this.props.visible)
+  componentWillReceiveProps(nextProps) {
+    const { visible } = nextProps
+    this.setState({ visible })
+  }
+
+  _renderSpinner() {
+    const { visible } = this.state
+
+    if (!visible)
       return (
         <View />
       );
@@ -112,7 +124,7 @@ export default class Spinner extends React.Component {
     );
 
     return (
-      <Modal visible={this.props.visible} transparent>
+      <Modal onRequestClose={() => this.close()} visible={visible} transparent>
         {spinner}
       </Modal>
     );
