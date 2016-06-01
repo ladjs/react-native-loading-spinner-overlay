@@ -23,8 +23,6 @@ import {
   Modal
 } from 'react-native';
 
-const Portal = require('react-native/Libraries/Portal/Portal.js');
-
 import autobind from 'autobind-decorator';
 import GiftedSpinner from 'react-native-gifted-spinner';
 
@@ -51,13 +49,13 @@ const styles = StyleSheet.create({
 
 const SIZES = ['small', 'normal', 'large'];
 
-let tag;
-
 @autobind
 export default class Spinner extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.state = { visible: this.props.visible }
   }
 
   static propTypes = {
@@ -74,30 +72,19 @@ export default class Spinner extends React.Component {
     overlayColor: 'rgba(0, 0, 0, 0.25)'
   };
 
-  componentWillMount() {
-    if (Platform.OS === 'android')
-      tag = Portal.allocateTag();
+  close() {
+    this.setState({ visible: false })
   }
 
-  componentWillUnmount() {
-    if (Platform.OS === 'android')
-      tag = null;
-  }
-
-  componentDidUpdate(prevProps) {
-
-    if (Platform.OS !== 'android') return;
-
-    if (!prevProps.visible && this.props.visible)
-      return Portal.showModal(tag, this._renderSpinner());
-
-    if (prevProps.visible && !this.props.visible) Portal.closeModal(tag);
-
+  componentWillReceiveProps(nextProps) {
+    const { visible } = nextProps
+    this.setState({ visible })
   }
 
   _renderSpinner() {
+    const { visible } = this.state
 
-    if (!this.props.visible)
+    if (!visible)
       return (
         <View />
       );
@@ -136,11 +123,8 @@ export default class Spinner extends React.Component {
       </View>
     );
 
-    if (Platform.OS === 'android')
-      return spinner;
-
     return (
-      <Modal visible={this.props.visible} transparent>
+      <Modal onRequestClose={() => this.close()} visible={visible} transparent>
         {spinner}
       </Modal>
     );
