@@ -20,11 +20,11 @@ import {
   Platform,
   StyleSheet,
   View,
-  Modal
+  Modal,
+  ActivityIndicator
 } from 'react-native';
 
 import autobind from 'autobind-decorator';
-import GiftedSpinner from 'react-native-gifted-spinner';
 
 const styles = StyleSheet.create({
   container: {
@@ -89,24 +89,6 @@ export default class Spinner extends React.Component {
         <View />
       );
 
-    // TODO: once RN version is released for this pull request
-    // then we will integrate this `"Normal"` styleAttr property as default
-    //let styleAttr = 'Normal';
-
-    let styleAttr = 'Inverse';
-    let size = 'large';
-
-    switch (this.props.size) {
-    case 'small':
-      styleAttr = 'SmallInverse';
-      size = 'small';
-      break;
-    case 'large':
-      styleAttr = 'LargeInverse';
-      size = 'large';
-      break;
-    }
-
     let spinner = (
       <View style={styles.container} key={'spinner' + Date.now()}>
         <View
@@ -114,11 +96,11 @@ export default class Spinner extends React.Component {
             styles.background,
             { backgroundColor: this.props.overlayColor }
           ]}>
-          <GiftedSpinner
+          <ActivityIndicator
             color={this.props.color}
-            size={size}
+            size={this.props.size}
             style={{ flex: 1 }}
-            styleAttr={styleAttr}/>
+            />
         </View>
       </View>
     );
