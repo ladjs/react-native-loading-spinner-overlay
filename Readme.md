@@ -76,7 +76,7 @@ class MyComponent extends React.Component {
 ## Platforms
 
 * iOS: this platform uses `Modal` ([docs][modal-docs]/[source][modal-source]) to overlay and `ActivityIndicatorIOS` ([docs][activity-indicator-docs]) for the loading spinner
-* Android: this platform uses `Portal` ([source][portal-source]) to overlay and `ProgressBarAndroid` ([docs][progress-bar-docs]) for the loading spinner
+* Android: this platform uses `Portal` ([source][portal-source]) to overlay and `ActivityIndicator` ([docs][progress-bar-docs]) for the loading spinner
 
 
 ## Notes
@@ -116,6 +116,6 @@ class MyComponent extends React.Component {
 [modal-source]: https://github.com/facebook/react-native/blob/master/Libraries/Modal/Modal.js
 [demo]: https://cdn.rawgit.com/niftylettuce/react-native-loading-spinner-overlay/master/media/demo.gif
 [activity-indicator-docs]: https://facebook.github.io/react-native/docs/activityindicatorios.html
-[progress-bar-docs]: https://facebook.github.io/react-native/docs/progressbarandroid.html
+[progress-bar-docs]: https://facebook.github.io/react-native/docs/activityindicator.html
 [portal-docs-issue]: https://github.com/facebook/react-native/issues/2501
 [style-attr-issue]: https://github.com/facebook/react-native/pull/4974
