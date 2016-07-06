@@ -24,8 +24,16 @@
 
 ## Install
 
+For React Native version `<=0.27.x` use version `0.1.x`:
+
 ```bash
-npm install --save react-native-loading-spinner-overlay
+npm install --save react-native-loading-spinner-overlay@0.1.x
+```
+
+For React Native version `>=0.28.x` use version `0.2.x`:
+
+```bash
+npm install --save react-native-loading-spinner-overlay@0.2.x
 ```
 
 
