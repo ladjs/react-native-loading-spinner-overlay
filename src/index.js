@@ -24,8 +24,6 @@ import {
   ActivityIndicator
 } from 'react-native';
 
-import autobind from 'autobind-decorator';
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -49,7 +47,6 @@ const styles = StyleSheet.create({
 
 const SIZES = ['small', 'normal', 'large'];
 
-@autobind
 export default class Spinner extends React.Component {
 
   constructor(props) {
