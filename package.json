@@ -43,6 +43,7 @@
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.3.13",
+    "babel-preset-react-native-stage-0": "^1.0.1",
     "babel-preset-stage-0": "^6.1.18",
     "eslint": "^2.10.2",
     "eslint-plugin-react": "^5.1.1",
