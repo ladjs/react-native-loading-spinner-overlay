@@ -17,7 +17,6 @@
 
 import React from 'react';
 import {
-  Platform,
   StyleSheet,
   View,
   Modal,
@@ -51,8 +50,7 @@ export default class Spinner extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = { visible: this.props.visible }
+    this.state = { visible: this.props.visible };
   }
 
   static propTypes = {
@@ -70,24 +68,24 @@ export default class Spinner extends React.Component {
   };
 
   close() {
-    this.setState({ visible: false })
+    this.setState({ visible: false });
   }
 
   componentWillReceiveProps(nextProps) {
-    const { visible } = nextProps
-    this.setState({ visible })
+    const { visible } = nextProps;
+    this.setState({ visible });
   }
 
   _renderSpinner() {
-    const { visible } = this.state
+    const { visible } = this.state;
 
     if (!visible)
       return (
         <View />
       );
 
-    let spinner = (
-      <View style={styles.container} key={'spinner' + Date.now()}>
+    const spinner = (
+      <View style={styles.container} key={`spinner_${Date.now()}`}>
         <View
           style={[
             styles.background,
@@ -114,4 +112,4 @@ export default class Spinner extends React.Component {
     return this._renderSpinner();
   }
 
-};
+}

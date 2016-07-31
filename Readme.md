@@ -24,16 +24,16 @@
 
 ## Install
 
+For React Native version `>=0.28.x` use version `>=0.3.x` (`0.2.x` is broken, sorry!):
+
+```bash
+npm install --save react-native-loading-spinner-overlay@latest
+```
+
 For React Native version `<=0.27.x` use version `0.1.x`:
 
 ```bash
 npm install --save react-native-loading-spinner-overlay@0.1.x
-```
-
-For React Native version `>=0.28.x` use version `0.2.x`:
-
-```bash
-npm install --save react-native-loading-spinner-overlay@0.2.x
 ```
 
 
@@ -83,11 +83,31 @@ class MyComponent extends React.Component {
 
 ## Platforms
 
+> For `>= 0.3.x`:
+
+* We use `ActivityIndicator` now!
+
+> For `0.2.x`:
+
+* Do not use this version due to [#22][issue-22], use `>= 0.3.x` please!
+
+> For `<= 0.1.x`:
+
 * iOS: this platform uses `Modal` ([docs][modal-docs]/[source][modal-source]) to overlay and `ActivityIndicatorIOS` ([docs][activity-indicator-docs]) for the loading spinner
 * Android: this platform uses `Portal` ([source][portal-source]) to overlay and `ActivityIndicator` ([docs][progress-bar-docs]) for the loading spinner
 
 
 ## Notes
+
+> For `>= 0.3.x`:
+
+* We use `ActivityIndicator` now!
+
+> For `0.2.x`:
+
+* This version is broken due to a dependency issue, see issue [#22][issue-22]
+
+> For `<= 0.1.x`:
 
 * Docs don't exist yet for `Portal`, see [this issue on GitHub][portal-docs-issue]; once those are in, then we can add a link to the source in [Platforms](#platforms)
 * Until a release of React Native is shipped [for this pull request][style-attr-issue], Android's `ProgressBarAndroid` will not have support for a `StyleAttr` value of `"Normal"` - therefore we only support a `size` prop of `"small"` or `"large"` right now (defaulting to `"large"`) - in other words, we can only support Android's inverse styling with a `styleAttr` of `"Inverse"`, `"SmallInverse"` (for a `size` prop of `"small"`), and `"LargeInverse"` (for a `size` prop of `"large`") (since there is no `"Normal"` support right now for `"size"` of `"normal"`).
@@ -97,7 +117,6 @@ class MyComponent extends React.Component {
 
 1. Fork/clone this repository
 2. Run `npm install`
-3. Run `npm run watch` to watch the `src` directory for changes
 4. Make changes in `src` directory
 6. Run `npm test` when you're done
 7. Submit a pull request
@@ -127,3 +146,4 @@ class MyComponent extends React.Component {
 [progress-bar-docs]: https://facebook.github.io/react-native/docs/activityindicator.html
 [portal-docs-issue]: https://github.com/facebook/react-native/issues/2501
 [style-attr-issue]: https://github.com/facebook/react-native/pull/4974
+[issue-22]: https://github.com/niftylettuce/react-native-loading-spinner-overlay/issues/22
