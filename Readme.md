@@ -45,7 +45,7 @@ This usage shows the default styles and properties.
 * You can pass a String `color` ColorProp (e.g. `red` or `#ff0000`) to change the default spinner color (by default it is `"white"` for high contrast on the default `overlayColor`; see below)
 * You can control visibility of the spinner using the Boolean prop `visible` (Boolean, by default it is `false`)
 * To change the color of the overlay, pass a ColorProp as the `overlayColor` prop (e.g. `'rgba(0,0,0,0.25)'`)
-
+* Optional text field, activate by passing textContent Prop and style by passing textStyle Prop
 
 ```js
 import React, { View } from 'react-native';
@@ -73,7 +73,7 @@ class MyComponent extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Spinner visible={this.state.visible} />
+        <Spinner visible={this.state.visible} textContent={{"Loading..."}} textStyle={{color: '#FFF'}} />
       </View>
     );
   }
