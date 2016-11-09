@@ -19,6 +19,7 @@ import React from 'react';
 import {
   StyleSheet,
   View,
+  Text,
   Modal,
   ActivityIndicator
 } from 'react-native';
@@ -41,6 +42,22 @@ const styles = StyleSheet.create({
     right: 0,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  textContainer: {
+    flex: 1,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+  },
+  textContent: {
+    top: 80,
+    height: 50,
+    fontSize: 20,
+    fontWeight: 'bold'
   }
 });
 
@@ -50,11 +67,12 @@ export default class Spinner extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { visible: this.props.visible };
+    this.state = { visible: this.props.visible, textContent: this.props.textContent };
   }
 
   static propTypes = {
     visible: React.PropTypes.bool,
+    textContent: React.PropTypes.string,
     color: React.PropTypes.string,
     size: React.PropTypes.oneOf(SIZES),
     overlayColor: React.PropTypes.string
@@ -62,6 +80,7 @@ export default class Spinner extends React.Component {
 
   static defaultProps = {
     visible: false,
+    textContent: "",
     color: 'white',
     size: 'large', // 'normal',
     overlayColor: 'rgba(0, 0, 0, 0.25)'
@@ -72,12 +91,12 @@ export default class Spinner extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { visible } = nextProps;
-    this.setState({ visible });
+    const { visible, textContent } = nextProps;
+    this.setState({ visible, textContent });
   }
 
   _renderSpinner() {
-    const { visible } = this.state;
+    const { visible, textContent } = this.state;
 
     if (!visible)
       return (
@@ -96,6 +115,9 @@ export default class Spinner extends React.Component {
             size={this.props.size}
             style={{ flex: 1 }}
             />
+          <View style={styles.textContainer}>
+            <Text style={[styles.textContent, this.props.textStyle]}>{textContent}</Text>
+          </View>
         </View>
       </View>
     );
