@@ -73,10 +73,35 @@ class MyComponent extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Spinner visible={this.state.visible} textContent={{"Loading..."}} textStyle={{color: '#FFF'}} />
+        <Spinner visible={this.state.visible} />
       </View>
     );
   }
+}
+```
+
+### Optional Text
+Activate by passing textContent Prop and style by passing testStyle Prop
+```js
+...
+<Spinner visible={this.state.visible} textContent={{"Loading..."}} textStyle={{color: '#FFF'}} />
+...
+```
+
+### Custom Spinner GIF
+For Android, native GIF support is optional, so add the following to android/app/build.gradle under dependencies
+```java
+compile 'com.facebook.fresco:animated-gif:0.12.0'
+```
+Activate by passing in source Prop and add extra styling by passing spinnerStyle Prop
+* Note that styling only works for custom spinner, not native indicator
+```js
+...
+render() {
+  const source = require('../path/to/image.gif');
+  return (
+    <Spinner visible={this.state.visible} source={source} spinnerStyle={{ height: 100, width: 100 }} />
+  );
 }
 ```
 
