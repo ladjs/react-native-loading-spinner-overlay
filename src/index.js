@@ -18,6 +18,7 @@
 import React from 'react';
 import {
   StyleSheet,
+  Image,
   View,
   Text,
   Modal,
@@ -51,13 +52,28 @@ const styles = StyleSheet.create({
     right: 0,
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'absolute',
+    position: 'absolute'
   },
   textContent: {
     top: 80,
     height: 50,
     fontSize: 20,
     fontWeight: 'bold'
+  },
+  customSpinnerContainer: {
+    flex: 1,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute'
+  },
+  customSpinner: {
+    resizeMode: 'contain',
+    width: 50,
+    height: 50,
   }
 });
 
@@ -67,7 +83,7 @@ export default class Spinner extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { visible: this.props.visible, textContent: this.props.textContent };
+    this.state = { visible: this.props.visible, textContent: this.props.textContent};
   }
 
   static propTypes = {
@@ -80,7 +96,7 @@ export default class Spinner extends React.Component {
 
   static defaultProps = {
     visible: false,
-    textContent: "",
+    textContent: '',
     color: 'white',
     size: 'large', // 'normal',
     overlayColor: 'rgba(0, 0, 0, 0.25)'
@@ -103,18 +119,23 @@ export default class Spinner extends React.Component {
         <View />
       );
 
+    const customSpinner = (
+      this.props.source ? <View style={ styles.customSpinnerContainer }><Image source={this.props.source} style={[styles.customSpinner, this.props.spinnerStyle]} /></View> :
+      <ActivityIndicator
+                color={this.props.color}
+                size={this.props.size}
+                style={{ flex: 1 }}
+                />
+    );
+
     const spinner = (
-      <View style={styles.container} key={`spinner_${Date.now()}`}>
+      <View style={styles.container} key={`spinner`}>
         <View
           style={[
             styles.background,
             { backgroundColor: this.props.overlayColor }
           ]}>
-          <ActivityIndicator
-            color={this.props.color}
-            size={this.props.size}
-            style={{ flex: 1 }}
-            />
+          {customSpinner}
           <View style={styles.textContainer}>
             <Text style={[styles.textContent, this.props.textStyle]}>{textContent}</Text>
           </View>
