@@ -95,8 +95,22 @@ export default class Spinner extends React.Component {
     this.setState({ visible, textContent });
   }
 
+  _renderDefaultContent() {
+    return (
+      <View style={styles.background}>
+        <ActivityIndicator
+          color={this.props.color}
+          size={this.props.size}
+          style={{ flex: 1 }}
+        />
+        <View style={styles.textContainer}>
+          <Text style={[styles.textContent, this.props.textStyle]}>{this.state.textContent}</Text>
+        </View>
+      </View>);
+  }
+
   _renderSpinner() {
-    const { visible, textContent } = this.state;
+    const { visible } = this.state;
 
     if (!visible)
       return (
@@ -104,21 +118,11 @@ export default class Spinner extends React.Component {
       );
 
     const spinner = (
-      <View style={styles.container} key={`spinner_${Date.now()}`}>
-        <View
-          style={[
-            styles.background,
-            { backgroundColor: this.props.overlayColor }
-          ]}>
-          <ActivityIndicator
-            color={this.props.color}
-            size={this.props.size}
-            style={{ flex: 1 }}
-            />
-          <View style={styles.textContainer}>
-            <Text style={[styles.textContent, this.props.textStyle]}>{textContent}</Text>
-          </View>
-        </View>
+      <View style={[
+        styles.container,
+        { backgroundColor: this.props.overlayColor }
+      ]} key={`spinner_${Date.now()}`}>
+        {this.props.children ? this.props.children : this._renderDefaultContent()}
       </View>
     );
 
