@@ -46,9 +46,10 @@ This usage shows the default styles and properties.
 * You can control visibility of the spinner using the Boolean prop `visible` (Boolean, by default it is `false`)
 * To change the color of the overlay, pass a ColorProp as the `overlayColor` prop (e.g. `'rgba(0,0,0,0.25)'`)
 * Optional text field, activate by passing textContent Prop and style by passing textStyle Prop
+* You can also pass a custom view to act as activity indicator.
 
 ```js
-import React, { View } from 'react-native';
+import React, { View, Text } from 'react-native';
 
 import Spinner from 'react-native-loading-spinner-overlay';
 
@@ -80,6 +81,13 @@ class MyComponent extends React.Component {
 }
 ```
 
+To use a custom activity indicator just pass it as child of the component:
+
+```js
+<Spinner visible={this.state.visible}>
+  <Text>This is my custom spinner</Text>
+</Spinner>
+```
 
 ## Platforms
 
