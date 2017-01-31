@@ -74,7 +74,7 @@ class MyComponent extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Spinner visible={this.state.visible} textContent={{"Loading..."}} textStyle={{color: '#FFF'}} />
+        <Spinner visible={this.state.visible} textContent={"Loading..."} textStyle={{color: '#FFF'}} />
       </View>
     );
   }
