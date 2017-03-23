@@ -72,6 +72,7 @@ export default class Spinner extends React.Component {
 
   static propTypes = {
     visible: React.PropTypes.bool,
+    cancelable: React.PropTypes.bool,
     textContent: React.PropTypes.string,
     color: React.PropTypes.string,
     size: React.PropTypes.oneOf(SIZES),
@@ -80,6 +81,7 @@ export default class Spinner extends React.Component {
 
   static defaultProps = {
     visible: false,
+    cancelable: true,
     textContent: "",
     color: 'white',
     size: 'large', // 'normal',
@@ -93,6 +95,12 @@ export default class Spinner extends React.Component {
   componentWillReceiveProps(nextProps) {
     const { visible, textContent } = nextProps;
     this.setState({ visible, textContent });
+  }
+
+  _handleOnRequestClose() {
+    if (this.props.cancelable) {
+      this.close();
+    }
   }
 
   _renderDefaultContent() {
@@ -128,7 +136,7 @@ export default class Spinner extends React.Component {
 
     return (
       <Modal
-        onRequestClose={() => this.close()}
+        onRequestClose={() => this._handleOnRequestClose()}
         supportedOrientations={['landscape', 'portrait']}
         transparent
         visible={visible}>
