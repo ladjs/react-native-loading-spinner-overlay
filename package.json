@@ -4,7 +4,7 @@
   "version": "0.4.2",
   "author": "Nick Baugh <niftylettuce@gmail.com>",
   "bugs": {
-    "url": "https://github.com/niftylettuce/react-native-loading-spinner-overlay/issues"
+    "url": "https://github.com/joinspontaneous/react-native-loading-spinner-overlay/issues"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
@@ -14,7 +14,7 @@
     "eslint-plugin-react": "^5.2.2",
     "eslint-plugin-react-native": "^1.2.0"
   },
-  "homepage": "https://github.com/niftylettuce/react-native-loading-spinner-overlay",
+  "homepage": "https://github.com/joinspontaneous/react-native-loading-spinner-overlay",
   "keywords": [
     "activity",
     "android",
@@ -38,7 +38,7 @@
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/niftylettuce/react-native-loading-spinner-overlay.git"
+    "url": "git+ssh://git@github.com/joinspontaneous/react-native-loading-spinner-overlay.git"
   },
   "scripts": {
     "lint": "node_modules/.bin/eslint src",
