@@ -41,12 +41,17 @@ npm install --save react-native-loading-spinner-overlay@0.1.x
 
 This usage shows the default styles and properties.
 
-* You can pass a String `size` prop that can either be `"large"` or `"small"` (no other cross-platform sizes are supported right now, and by default it is `"large"`)
-* You can pass a String `color` ColorProp (e.g. `red` or `#ff0000`) to change the default spinner color (by default it is `"white"` for high contrast on the default `overlayColor`; see below)
-* You can control visibility of the spinner using the Boolean prop `visible` (Boolean, by default it is `false`)
-* To change the color of the overlay, pass a ColorProp as the `overlayColor` prop (e.g. `'rgba(0,0,0,0.25)'`)
-* Optional text field, activate by passing textContent Prop and style by passing textStyle Prop
-* You can also pass a custom view to act as activity indicator.
+| Property      | Type             | Default  | Description  |
+| ------------- |----------------| --------|-------------|
+| cancelable  | `boolean`      |    `true` | **Android**: If set to false, it will prevent spinner from hiding when pressing the hardware back button.|
+| color         | `string`      |   `white` | Changes the spinner's color (example values are `red`, `#ff0000`, etc). For adjusting the contrast see `overlayColor` prop below.|
+| overlayColor  | `string`      |    `rgba(0, 0, 0, 0.25)` | Changes the color of the overlay.|
+| size          | `small`, `normal`, `large` | `large ` | Sets the spinner's size. No other cross-platform sizes are supported right now.|
+| textContent  | `string`      |    `""` | Optional text field to be shown.|
+| textStyle  | `style`      |    `-` | The style to be applied to the `<Text>` that displays the `textContent`.|
+| visible  | `boolean`      |    `false` | Controls the visibility of the spinner.|
+
+You can also add a child view to act as a custom activity indicator.
 
 ```js
 import React, { View, Text } from 'react-native';
