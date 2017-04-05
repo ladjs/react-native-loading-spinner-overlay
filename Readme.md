@@ -43,7 +43,7 @@ This usage shows the default styles and properties.
 
 | Property      | Type             | Default  | Description  |
 | ------------- |----------------| --------|-------------|
-| cancelable  | `boolean`      |    `true` | **Android**: If set to false, it will prevent spinner from hiding when pressing the hardware back button.|
+| cancelable  | `boolean`      |    `false` | **Android**: If set to false, it will prevent spinner from hiding when pressing the hardware back button.  If set to true, it will allow spinner to hide if the hardware back button is pressed. |
 | color         | `string`      |   `white` | Changes the spinner's color (example values are `red`, `#ff0000`, etc). For adjusting the contrast see `overlayColor` prop below.|
 | overlayColor  | `string`      |    `rgba(0, 0, 0, 0.25)` | Changes the color of the overlay.|
 | size          | `small`, `normal`, `large` | `large ` | Sets the spinner's size. No other cross-platform sizes are supported right now.|

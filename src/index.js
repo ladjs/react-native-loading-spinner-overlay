@@ -81,7 +81,7 @@ export default class Spinner extends React.Component {
 
   static defaultProps = {
     visible: false,
-    cancelable: true,
+    cancelable: false,
     textContent: "",
     color: 'white',
     size: 'large', // 'normal',
