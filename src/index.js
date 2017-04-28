@@ -120,10 +120,9 @@ export default class Spinner extends React.Component {
   _renderSpinner() {
     const { visible } = this.state;
 
-    if (!visible)
-      return (
-        <View />
-      );
+    if (!visible) {
+      return null;
+    }
 
     const spinner = (
       <View style={[
