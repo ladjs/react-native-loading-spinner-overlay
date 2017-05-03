@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     right: 0,
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'absolute',
+    position: 'absolute'
   },
   textContent: {
     top: 80,
@@ -82,7 +82,7 @@ export default class Spinner extends React.Component {
   static defaultProps = {
     visible: false,
     cancelable: false,
-    textContent: "",
+    textContent: '',
     color: 'white',
     size: 'large', // 'normal',
     overlayColor: 'rgba(0, 0, 0, 0.25)'
@@ -122,7 +122,7 @@ export default class Spinner extends React.Component {
 
     if (!visible)
       return (
-        <View />
+        <View display="none" />
       );
 
     const spinner = (
