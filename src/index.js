@@ -16,6 +16,7 @@
 //
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   StyleSheet,
   View,
@@ -71,12 +72,12 @@ export default class Spinner extends React.Component {
   }
 
   static propTypes = {
-    visible: React.PropTypes.bool,
-    cancelable: React.PropTypes.bool,
-    textContent: React.PropTypes.string,
-    color: React.PropTypes.string,
-    size: React.PropTypes.oneOf(SIZES),
-    overlayColor: React.PropTypes.string
+    visible: PropTypes.bool,
+    cancelable: PropTypes.bool,
+    textContent: PropTypes.string,
+    color: PropTypes.string,
+    size: PropTypes.oneOf(SIZES),
+    overlayColor: PropTypes.string
   };
 
   static defaultProps = {
