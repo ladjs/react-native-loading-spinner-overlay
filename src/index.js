@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
   }
 });
 
+const ANIMATION = ['none', 'slide', 'fade'];
 const SIZES = ['small', 'normal', 'large'];
 
 export default class Spinner extends React.Component {
@@ -75,6 +76,7 @@ export default class Spinner extends React.Component {
     visible: PropTypes.bool,
     cancelable: PropTypes.bool,
     textContent: PropTypes.string,
+    animation: PropTypes.oneOf(ANIMATION),
     color: PropTypes.string,
     size: PropTypes.oneOf(SIZES),
     overlayColor: PropTypes.string
@@ -84,6 +86,7 @@ export default class Spinner extends React.Component {
     visible: false,
     cancelable: false,
     textContent: '',
+    animation: 'none',
     color: 'white',
     size: 'large', // 'normal',
     overlayColor: 'rgba(0, 0, 0, 0.25)'
@@ -122,9 +125,7 @@ export default class Spinner extends React.Component {
     const { visible } = this.state;
 
     if (!visible)
-      return (
-        <View display="none" />
-      );
+      return null;
 
     const spinner = (
       <View style={[
@@ -137,6 +138,7 @@ export default class Spinner extends React.Component {
 
     return (
       <Modal
+        animationType={this.props.animation}
         onRequestClose={() => this._handleOnRequestClose()}
         supportedOrientations={['landscape', 'portrait']}
         transparent
