@@ -41,10 +41,11 @@ npm install --save react-native-loading-spinner-overlay@0.1.x
 
 This usage shows the default styles and properties.
 
-| Property      | Type             | Default  | Description  |
-| ------------- |----------------| --------|-------------|
-| cancelable  | `boolean`      |    `false` | **Android**: If set to false, it will prevent spinner from hiding when pressing the hardware back button.  If set to true, it will allow spinner to hide if the hardware back button is pressed. |
+| Property      | Type           |   Default  | Description  |
+|---------------|----------------|------------|--------------|
+| cancelable    | `boolean`      |    `false` | **Android**: If set to false, it will prevent spinner from hiding when pressing the hardware back button.  If set to true, it will allow spinner to hide if the hardware back button is pressed. |
 | color         | `string`      |   `white` | Changes the spinner's color (example values are `red`, `#ff0000`, etc). For adjusting the contrast see `overlayColor` prop below.|
+| animation     |`none`, `slide`, `fade`|   `none`  | Changes animation on show and hide spinner's view.|
 | overlayColor  | `string`      |    `rgba(0, 0, 0, 0.25)` | Changes the color of the overlay.|
 | size          | `small`, `normal`, `large` | `large ` | Sets the spinner's size. No other cross-platform sizes are supported right now.|
 | textContent  | `string`      |    `""` | Optional text field to be shown.|
