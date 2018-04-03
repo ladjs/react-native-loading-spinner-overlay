@@ -89,7 +89,8 @@ export default class Spinner extends React.Component {
     animation: 'none',
     color: 'white',
     size: 'large', // 'normal',
-    overlayColor: 'rgba(0, 0, 0, 0.25)'
+    overlayColor: 'rgba(0, 0, 0, 0.25)',
+    loader: null
   };
 
   close() {
@@ -110,11 +111,11 @@ export default class Spinner extends React.Component {
   _renderDefaultContent() {
     return (
       <View style={styles.background}>
-        <ActivityIndicator
-          color={this.props.color}
-          size={this.props.size}
-          style={{ flex: 1 }}
-        />
+        {this.props.loader == null ? <ActivityIndicator
+         color={this.props.color}
+         size={this.props.size}
+         style={{ flex: 1 }}
+        /> : this.props.loader }
         <View style={styles.textContainer}>
           <Text style={[styles.textContent, this.props.textStyle]}>{this.state.textContent}</Text>
         </View>
