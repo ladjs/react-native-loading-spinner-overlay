@@ -1,4 +1,3 @@
-
 //     react-native-loading-spinner-overlay
 //     Copyright (c) 2016- Nick Baugh <niftylettuce@gmail.com>
 //     MIT Licensed
@@ -18,6 +17,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  ViewPropTypes,
   StyleSheet,
   View,
   Text,
@@ -25,10 +25,11 @@ import {
   ActivityIndicator
 } from 'react-native';
 
+const transparent = 'transparent';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'transparent',
+    backgroundColor: transparent,
     position: 'absolute',
     top: 0,
     bottom: 0,
@@ -59,27 +60,36 @@ const styles = StyleSheet.create({
     height: 50,
     fontSize: 20,
     fontWeight: 'bold'
+  },
+  activityIndicator: {
+    flex: 1
   }
 });
 
 const ANIMATION = ['none', 'slide', 'fade'];
 const SIZES = ['small', 'normal', 'large'];
 
-export default class Spinner extends React.Component {
-
+export default class Spinner extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = { visible: this.props.visible, textContent: this.props.textContent };
+    this.state = {
+      visible: this.props.visible,
+      textContent: this.props.textContent
+    };
   }
 
   static propTypes = {
-    visible: PropTypes.bool,
     cancelable: PropTypes.bool,
-    textContent: PropTypes.string,
-    animation: PropTypes.oneOf(ANIMATION),
     color: PropTypes.string,
+    animation: PropTypes.oneOf(ANIMATION),
+    overlayColor: PropTypes.string,
     size: PropTypes.oneOf(SIZES),
-    overlayColor: PropTypes.string
+    textContent: PropTypes.string,
+    textStyle: Text.propTypes.style,
+    visible: PropTypes.bool,
+    indicatorStyle: ViewPropTypes.style,
+    customIndicator: PropTypes.element,
+    children: PropTypes.element
   };
 
   static defaultProps = {
@@ -96,9 +106,12 @@ export default class Spinner extends React.Component {
     this.setState({ visible: false });
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { visible, textContent } = nextProps;
-    this.setState({ visible, textContent });
+  static getDerivedStateFromProps(props, state) {
+    const newState = {};
+    if (state.visible !== props.visible) newState.visible = props.visible;
+    if (state.textContent !== props.textContent)
+      newState.textContent = props.textContent;
+    return newState;
   }
 
   _handleOnRequestClose() {
@@ -110,29 +123,35 @@ export default class Spinner extends React.Component {
   _renderDefaultContent() {
     return (
       <View style={styles.background}>
-        <ActivityIndicator
-          color={this.props.color}
-          size={this.props.size}
-          style={[{ flex: 1 }, { ...this.props.indicatorStyle } ]}
-        />
-        <View style={[styles.textContainer, {...this.props.indicatorStyle}]}>
-          <Text style={[styles.textContent, this.props.textStyle]}>{this.state.textContent}</Text>
+        {this.props.customIndicator ? (
+          this.props.customIndicator
+        ) : (
+          <ActivityIndicator
+            color={this.props.color}
+            size={this.props.size}
+            style={[styles.activityIndicator, { ...this.props.indicatorStyle }]}
+          />
+        )}
+        <View style={[styles.textContainer, { ...this.props.indicatorStyle }]}>
+          <Text style={[styles.textContent, this.props.textStyle]}>
+            {this.state.textContent}
+          </Text>
         </View>
-      </View>);
+      </View>
+    );
   }
 
   _renderSpinner() {
-    const { visible } = this.state;
-
-    if (!visible)
-      return null;
+    if (!this.state.visible) return null;
 
     const spinner = (
-      <View style={[
-        styles.container,
-        { backgroundColor: this.props.overlayColor }
-      ]} key={`spinner_${Date.now()}`}>
-        {this.props.children ? this.props.children : this._renderDefaultContent()}
+      <View
+        style={[styles.container, { backgroundColor: this.props.overlayColor }]}
+        key={`spinner_${Date.now()}`}
+      >
+        {this.props.children
+          ? this.props.children
+          : this._renderDefaultContent()}
       </View>
     );
 
@@ -142,15 +161,14 @@ export default class Spinner extends React.Component {
         onRequestClose={() => this._handleOnRequestClose()}
         supportedOrientations={['landscape', 'portrait']}
         transparent
-        visible={visible}>
+        visible={this.state.visible}
+      >
         {spinner}
       </Modal>
     );
-
   }
 
   render() {
     return this._renderSpinner();
   }
-
 }

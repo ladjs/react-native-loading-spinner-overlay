@@ -1,0 +1,26 @@
+{
+  "name": "example",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "example": "haul"
+  },
+  "dependencies": {
+    "react": "16.6.0-alpha.8af6728",
+    "react-native": "0.57.3",
+    "react-native-loading-spinner-overlay": "file:../"
+  },
+  "devDependencies": {
+    "babel-jest": "23.6.0",
+    "haul": "^1.0.0-rc.8",
+    "jest": "23.6.0",
+    "metro-react-native-babel-preset": "0.48.1",
+    "react-hot-loader": "^4.3.11",
+    "react-test-renderer": "16.6.0-alpha.8af6728"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
