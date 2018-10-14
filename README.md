@@ -98,7 +98,7 @@ We recommend that you follow two rules when implementing this component.
 [MIT](LICENSE) © Nick Baugh
 
 
-##
+## 
 
 [npm]: https://www.npmjs.com/
 

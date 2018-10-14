@@ -16,14 +16,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  ViewPropTypes,
-  StyleSheet,
-  View,
-  Text,
-  Modal,
-  ActivityIndicator
-} from 'react-native';
+import { StyleSheet, View, Text, Modal, ActivityIndicator } from 'react-native';
 
 const transparent = 'transparent';
 const styles = StyleSheet.create({
@@ -85,9 +78,9 @@ export default class Spinner extends React.PureComponent {
     overlayColor: PropTypes.string,
     size: PropTypes.oneOf(SIZES),
     textContent: PropTypes.string,
-    textStyle: Text.propTypes.style,
+    textStyle: PropTypes.object,
     visible: PropTypes.bool,
-    indicatorStyle: ViewPropTypes.style,
+    indicatorStyle: PropTypes.object,
     customIndicator: PropTypes.element,
     children: PropTypes.element
   };
