@@ -6,7 +6,7 @@
 [![license](https://img.shields.io/github/license/joinspontaneous/react-native-loading-spinner-overlay.svg)](LICENSE)
 [![npm downloads](https://img.shields.io/npm/dt/react-native-loading-spinner-overlay.svg)](https://npm.im/react-native-loading-spinner-overlay)
 
-<img src="https://cdn.jsdelivr.net/gh/joinspontaneous/react-native-loading-spinner-overlay/media/demo.gif" width="200" height="393.5" alt="" />
+<img src="https://cdn.jsdelivr.net/gh/joinspontaneous/react-native-loading-spinner-overlay@1.0.0/media/demo.gif" width="200" height="393.5" alt="" />
 
 
 ## Table of Contents
@@ -98,7 +98,7 @@ We recommend that you follow two rules when implementing this component.
 [MIT](LICENSE) © Nick Baugh
 
 
-## 
+##
 
 [npm]: https://www.npmjs.com/
 
