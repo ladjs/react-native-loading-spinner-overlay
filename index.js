@@ -82,7 +82,8 @@ export default class Spinner extends React.PureComponent {
     visible: PropTypes.bool,
     indicatorStyle: PropTypes.object,
     customIndicator: PropTypes.element,
-    children: PropTypes.element
+    children: PropTypes.element,
+    spinnerKey: PropTypes.string
   };
 
   static defaultProps = {
@@ -140,7 +141,7 @@ export default class Spinner extends React.PureComponent {
     const spinner = (
       <View
         style={[styles.container, { backgroundColor: this.props.overlayColor }]}
-        key={`spinner_${Date.now()}`}
+        key={this.props.spinnerKey ? this.props.spinnerKey : `spinner_${Date.now()}`}
       >
         {this.props.children
           ? this.props.children
