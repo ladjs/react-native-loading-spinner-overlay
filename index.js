@@ -136,8 +136,6 @@ export default class Spinner extends React.PureComponent {
   }
 
   _renderSpinner() {
-    if (!this.state.visible) return null;
-
     const spinner = (
       <View
         style={[styles.container, { backgroundColor: this.props.overlayColor }]}
