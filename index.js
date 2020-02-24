@@ -20,42 +20,42 @@ import { StyleSheet, View, Text, Modal, ActivityIndicator } from 'react-native';
 
 const transparent = 'transparent';
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: transparent,
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0
-  },
-  background: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  textContainer: {
-    flex: 1,
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute'
-  },
-  textContent: {
-    top: 80,
-    height: 50,
-    fontSize: 20,
-    fontWeight: 'bold'
-  },
   activityIndicator: {
     flex: 1
+  },
+  background: {
+    alignItems: 'center',
+    bottom: 0,
+    justifyContent: 'center',
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0
+  },
+  container: {
+    backgroundColor: transparent,
+    bottom: 0,
+    flex: 1,
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0
+  },
+  textContainer: {
+    alignItems: 'center',
+    bottom: 0,
+    flex: 1,
+    justifyContent: 'center',
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0
+  },
+  textContent: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    height: 50,
+    top: 80
   }
 });
 
@@ -139,7 +139,11 @@ export default class Spinner extends React.PureComponent {
     const spinner = (
       <View
         style={[styles.container, { backgroundColor: this.props.overlayColor }]}
-        key={this.props.spinnerKey ? this.props.spinnerKey : `spinner_${Date.now()}`}
+        key={
+          this.props.spinnerKey
+            ? this.props.spinnerKey
+            : `spinner_${Date.now()}`
+        }
       >
         {this.props.children
           ? this.props.children
