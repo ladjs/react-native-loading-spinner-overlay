@@ -158,6 +158,7 @@ export default class Spinner extends React.PureComponent {
         supportedOrientations={['landscape', 'portrait']}
         transparent
         visible={this.state.visible}
+        statusBarTranslucent={true}
       >
         {spinner}
       </Modal>
