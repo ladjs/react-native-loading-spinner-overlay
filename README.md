@@ -77,6 +77,7 @@ We recommend that you follow two rules when implementing this component.
 | Name                | Website                   |
 | ------------------- | ------------------------- |
 | **Nick Baugh**      | <http://niftylettuce.com> |
+| **Rohit Bhatia**    | <http://blendtale.com>    |
 | **Spencer Snyder**  | <http://spencersnyder.io> |
 | **Luciano Lima**    |                           |
 | **George Savvidis** |                           |
