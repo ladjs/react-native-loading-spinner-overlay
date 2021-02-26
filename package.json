@@ -119,7 +119,7 @@
     "url": "git+ssh://git@github.com/joinspontaneous/react-native-loading-spinner-overlay.git"
   },
   "xo": {
-    "parser": "babel-eslint",
+    "parser": "typescript-eslint",
     "prettier": true,
     "space": true,
     "extends": [
@@ -136,7 +136,8 @@
     },
     "ignores": [
       "config.js",
-      "example/**"
+      "example/**",
+      "lib"
     ],
     "settings": {
       "react": {
