@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { StyleSheet, View, Text, Modal, ActivityIndicator, TextStyle, ViewStyle } from 'react-native';
+import { View, Text, Modal, ActivityIndicator, TextStyle, ViewStyle } from 'react-native';
 import styles from './style'
+
 const transparent = 'transparent';
 
 
