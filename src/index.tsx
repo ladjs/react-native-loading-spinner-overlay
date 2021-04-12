@@ -94,3 +94,5 @@ const Spinner = ({
       return _renderSpinner()
 
 }
+
+export default Spinner

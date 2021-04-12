@@ -14,3 +14,5 @@ export interface SpinnerPropTypes {
     children?: React.ReactNode;
     spinnerKey?: string;
 }
+declare const Spinner: ({ cancelable, color, animation, overlayColor, size, textContent, textStyle, visible, indicatorStyle, customIndicator, children, spinnerKey }: SpinnerPropTypes) => any;
+export default Spinner;
