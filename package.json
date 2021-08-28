@@ -26,7 +26,8 @@
     "Antonio Grass <antoniograssb@gmail.com>",
     "Vijay Chouhan <vijaychouhan.rails@gmail.com>",
     "Jacob Lee <artdent@gmail.com>",
-    "Matt Labrum"
+    "Matt Labrum",
+    "Nguyen Hoang Minh <nghminh163@outlook.com>"
   ],
   "dependencies": {
     "prop-types": "^15.6.2"
@@ -43,8 +44,8 @@
     "husky": "^1.1.2",
     "lint-staged": "^7.3.0",
     "prettier": "^1.14.3",
-    "react": "16.6.0-alpha.8af6728",
-    "react-native": "^0.57.3",
+    "react": "17.0.2",
+    "react-native": "^0.0.65",
     "remark-cli": "^5.0.0",
     "remark-preset-github": "^0.0.9",
     "xo": "^0.23.0"
