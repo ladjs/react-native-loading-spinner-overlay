@@ -3,6 +3,8 @@
   "description": "The only pure React Native Native iOS and Android loading spinner (progress bar indicator) overlay",
   "version": "2.0.0",
   "author": "Nick Baugh <niftylettuce@gmail.com>",
+  "main": "lib/index.js",
+  "types": "lib",
   "bugs": {
     "url": "https://github.com/joinspontaneous/react-native-loading-spinner-overlay/issues"
   },
@@ -11,8 +13,14 @@
       "@commitlint/config-conventional"
     ]
   },
+  "scripts": {
+    "build": "npm run test && tsc -p .",
+    "lint": "xo && remark . -qfo",
+    "test": "npm run lint"
+  },
   "contributors": [
     "Nick Baugh <niftylettuce@gmail.com> (http://niftylettuce.com)",
+    "Rohit Bhatia <irohitbhatia@gmail.com> (http://blendtale.com)",
     "Spencer Snyder <sasnyde2@gmail.com> (http://spencersnyder.io)",
     "Luciano Lima <beavess@gmail.com>",
     "George Savvidis",
@@ -28,12 +36,11 @@
     "Jacob Lee <artdent@gmail.com>",
     "Matt Labrum"
   ],
-  "dependencies": {
-    "prop-types": "^15.6.2"
-  },
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.1.2",
+    "@types/react-native": "^0.63.50",
+    "@typescript-eslint/parser": "^4.15.2",
     "babel-eslint": "^10.0.1",
     "eslint": "4",
     "eslint-config-xo-lass": "^1.0.3",
@@ -47,7 +54,12 @@
     "react-native": "^0.57.3",
     "remark-cli": "^5.0.0",
     "remark-preset-github": "^0.0.9",
+    "typescript": "^4.2.2",
     "xo": "^0.23.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
   },
   "homepage": "https://github.com/joinspontaneous/react-native-loading-spinner-overlay",
   "husky": {
@@ -78,7 +90,7 @@
   "license": "MIT",
   "lint-staged": {
     "linters": {
-      "*.js": [
+      "*.ts": [
         "xo --fix",
         "git add"
       ],
@@ -91,11 +103,6 @@
         "git add"
       ]
     }
-  },
-  "main": "index.js",
-  "peerDependencies": {
-    "react": "*",
-    "react-native": "*"
   },
   "prettier": {
     "singleQuote": true,
@@ -111,12 +118,8 @@
     "type": "git",
     "url": "git+ssh://git@github.com/joinspontaneous/react-native-loading-spinner-overlay.git"
   },
-  "scripts": {
-    "lint": "xo && remark . -qfo",
-    "test": "npm run lint"
-  },
   "xo": {
-    "parser": "babel-eslint",
+    "parser": "typescript-eslint",
     "prettier": true,
     "space": true,
     "extends": [
@@ -133,7 +136,8 @@
     },
     "ignores": [
       "config.js",
-      "example/**"
+      "example/**",
+      "lib"
     ],
     "settings": {
       "react": {
