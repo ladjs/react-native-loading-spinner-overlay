@@ -1,7 +1,7 @@
 {
   "name": "react-native-loading-spinner-overlay",
   "description": "The only pure React Native Native iOS and Android loading spinner (progress bar indicator) overlay",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "author": "Nick Baugh <niftylettuce@gmail.com>",
   "main": "lib/index.js",
   "types": "lib",
