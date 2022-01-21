@@ -50,6 +50,9 @@ const Spinner = ({
         }
     }
 
+    React.useEffect(() => {
+      setSpinnerVisibility(visible)
+    }, [visible])
     const _renderDefaultContent = () => {
         return (
           <View style={styles.background}>
