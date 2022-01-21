@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { View, Text, Modal, ActivityIndicator, TextStyle, ViewStyle } from 'react-native';
+import { StyleSheet, View, Text, Modal, ActivityIndicator, TextStyle, ViewStyle } from 'react-native';
 import styles from './style'
-
 const transparent = 'transparent';
 
 
@@ -43,6 +42,10 @@ const Spinner = ({
     const close = () => {
         setSpinnerVisibility(false)
     }
+
+    React.useEffect(() => {
+      setSpinnerVisibility(visible)
+    }, [visible])
 
    const _handleOnRequestClose = () => {
         if (cancelable) {
