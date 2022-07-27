@@ -1,16 +1,9 @@
 {
   "include": ["src"],
-  "exclude": [
-    "node_modules",
-    "config.js"
-
-  ],
+  "exclude": ["node_modules", "config.js"],
   "compilerOptions": {
-    "lib": [
-      "es5",
-      "es6",
-      "esnext.asynciterable"
-    ],
+    "lib": ["es5", "es6", "esnext.asynciterable"],
+    "types": ["react", "jest"],
     "allowSyntheticDefaultImports": false,
     "esModuleInterop": false,
     "jsx": "react",
