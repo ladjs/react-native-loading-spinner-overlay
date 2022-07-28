@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/prefer-nullish-coalescing: 0 */
 import * as React from 'react';
 import {
   View,
@@ -8,8 +9,6 @@ import {
   ViewStyle
 } from 'react-native';
 import styles from './style';
-
-const transparent = 'transparent';
 
 export interface SpinnerPropTypes {
   cancelable?: boolean;
